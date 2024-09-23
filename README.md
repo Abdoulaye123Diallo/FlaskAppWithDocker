@@ -1,24 +1,51 @@
-### 1. Cloner le repository localement via cette commande :
-git clone https://github.com/Abdoulaye123Diallo/FlaskAppWithDocker.git
+# Flask App with Docker 🚀
 
-Ensuite, se déplacer vers le repertoire ou se trouve le fichier docker-compose.yml via cette commande :
-cd FlaskAppWithDocker
+Ce projet déploie une application Flask avec une base de données MySQL en utilisant Docker.
 
-Exécuter cette commande pour lancer les applications :
-docker-compose -f docker-compose.yml up
+## Pré-requis 🛠️
+Assurez-vous d'avoir les outils suivants installés sur votre machine :
+- [Docker](https://docs.docker.com/get-docker/)
+- [Git](https://git-scm.com/)
 
-Une fois tout cela fait, ouvrir postamn pour faire les tests:
-D'abourd exécuter cette curl pour ajouter un étudiant dans la base de données Mysql :
+## Installation 🔧
 
+1. **Clonez le repository localement :**
+
+    ```bash
+    git clone https://github.com/Abdoulaye123Diallo/FlaskAppWithDocker.git
+    ```
+
+2. **Accédez au répertoire du projet :**
+
+    ```bash
+    cd FlaskAppWithDocker
+    ```
+
+3. **Lancez les applications avec Docker Compose :**
+
+    ```bash
+    docker-compose -f docker-compose.yml up
+    ```
+
+## Tests via Postman 🔍
+
+### Ajouter un étudiant 🧑‍🎓
+Utilisez la commande `curl` ci-dessous pour ajouter un étudiant à la base de données MySQL :
+
+```bash
 curl --location 'http://localhost:5000/add' \
 --header 'Content-Type: application/json' \
 --data '{
-    "ID":1,
-    "nom":"Abdoulaye Diallo",
-    "age":23
+    "ID": 1,
+    "nom": "Abdoulaye Diallo",
+    "age": 23
 }'
-Si tout marche on devra voir le message : Etudiant ajouté avec succès
+```
 
-Pour tester la récupération des étudiants de la base, exécuter cette curl :
-curl --location 'http://localhost:5000/etudiants'
 
+### Récupérer les étudiants 👥
+Exécutez cette commande pour obtenir la liste des étudiants dans la base de données :
+
+```bash
+    curl --location 'http://localhost:5000/etudiants'
+```
